@@ -609,14 +609,18 @@ func NormalizeRetryableErrorPatterns(settings *objects.ChannelSettings) error {
 
 	for _, pattern := range settings.RetryableErrorPatterns {
 		pattern.Pattern = strings.TrimSpace(pattern.Pattern)
+		pattern.CompiledRegex = nil
 		if pattern.Pattern == "" {
 			continue
 		}
 
 		if pattern.Regex {
-			if _, err := regexp.Compile(pattern.Pattern); err != nil {
+			compiledRegex, err := regexp.Compile(pattern.Pattern)
+			if err != nil {
 				return fmt.Errorf("invalid retryable error regex %q: %w", pattern.Pattern, err)
 			}
+
+			pattern.CompiledRegex = compiledRegex
 		}
 
 		key := fmt.Sprintf("%t\x00%s", pattern.Regex, pattern.Pattern)

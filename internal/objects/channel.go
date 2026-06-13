@@ -3,6 +3,7 @@ package objects
 import (
 	"encoding/json"
 	"fmt"
+	"regexp"
 	"strings"
 	"time"
 
@@ -189,8 +190,9 @@ type ChannelSettings struct {
 }
 
 type RetryableErrorPattern struct {
-	Pattern string `json:"pattern"`
-	Regex   bool   `json:"regex,omitempty"`
+	Pattern       string         `json:"pattern"`
+	Regex         bool           `json:"regex,omitempty"`
+	CompiledRegex *regexp.Regexp `json:"-"`
 }
 
 type ChannelRateLimit struct {

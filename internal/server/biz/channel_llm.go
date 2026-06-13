@@ -459,6 +459,10 @@ func (svc *ChannelService) buildChannelWithTransformer(c *ent.Channel) (*Channel
 		}
 	}
 
+	if err := NormalizeRetryableErrorPatterns(c.Settings); err != nil {
+		return nil, fmt.Errorf("invalid retryable error patterns for channel %s: %w", c.Name, err)
+	}
+
 	httpClient := svc.getHttpClient(c.Settings)
 	ch := buildChannel(c, httpClient)
 

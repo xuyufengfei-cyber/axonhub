@@ -2,7 +2,6 @@ package orchestrator
 
 import (
 	"errors"
-	"regexp"
 	"slices"
 	"strings"
 
@@ -55,8 +54,7 @@ func matchesRetryableErrorPattern(err error, patterns []objects.RetryableErrorPa
 		}
 
 		if pattern.Regex {
-			matched, regexErr := regexp.MatchString(pattern.Pattern, message)
-			if regexErr == nil && matched {
+			if pattern.CompiledRegex != nil && pattern.CompiledRegex.MatchString(message) {
 				return true
 			}
 

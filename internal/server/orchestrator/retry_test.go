@@ -238,6 +238,7 @@ func TestIsRetryableErrorForChannel(t *testing.T) {
 			},
 		},
 	}
+	assert.NoError(t, biz.NormalizeRetryableErrorPatterns(channel.Settings))
 
 	tests := []struct {
 		name     string

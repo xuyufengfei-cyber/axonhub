@@ -2576,22 +2576,24 @@ export function ChannelsActionDialog({ currentRow, duplicateFromRow, open, onOpe
                       </FormItem>
 
                       <FormItem className='grid grid-cols-1 items-start gap-x-6 gap-y-2 md:grid-cols-8'>
-                        <div className='flex items-center gap-1.5 pt-2 md:relative md:col-span-2 md:block md:text-right'>
-                          <FormLabel className='font-medium'>{t('channels.dialogs.retryableStatusCodes.label')}</FormLabel>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <button
-                                type='button'
-                                className='text-muted-foreground hover:text-foreground inline-flex items-center md:absolute md:top-2 md:left-full md:ml-1.5'
-                                aria-label={t('channels.dialogs.retryableStatusCodes.tooltip')}
-                              >
-                                <Info className='h-3.5 w-3.5' />
-                              </button>
-                            </TooltipTrigger>
-                            <TooltipContent className='max-w-sm'>
-                              <p>{t('channels.dialogs.retryableStatusCodes.tooltip')}</p>
-                            </TooltipContent>
-                          </Tooltip>
+                        <div className='flex items-center gap-1.5 pt-2 md:col-span-2'>
+                          <span className='inline-flex items-center gap-1.5'>
+                            <FormLabel className='font-medium'>{t('channels.dialogs.retryableStatusCodes.label')}</FormLabel>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button
+                                  type='button'
+                                  className='text-muted-foreground hover:text-foreground inline-flex items-center'
+                                  aria-label={t('channels.dialogs.retryableStatusCodes.tooltip')}
+                                >
+                                  <Info className='h-3.5 w-3.5' />
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent className='max-w-sm'>
+                                <p>{t('channels.dialogs.retryableStatusCodes.tooltip')}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </span>
                         </div>
                         <div className='md:col-span-6'>
                           <Input
@@ -2604,22 +2606,24 @@ export function ChannelsActionDialog({ currentRow, duplicateFromRow, open, onOpe
                       </FormItem>
 
                       <FormItem className='grid grid-cols-1 items-start gap-x-6 gap-y-2 md:grid-cols-8'>
-                        <div className='flex items-center gap-1.5 pt-2 md:relative md:col-span-2 md:block md:text-right'>
-                          <FormLabel className='font-medium'>{t('channels.dialogs.retryableErrorPatterns.label')}</FormLabel>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <button
-                                type='button'
-                                className='text-muted-foreground hover:text-foreground inline-flex items-center md:absolute md:top-2 md:left-full md:ml-1.5'
-                                aria-label={t('channels.dialogs.retryableErrorPatterns.description')}
-                              >
-                                <Info className='h-3.5 w-3.5' />
-                              </button>
-                            </TooltipTrigger>
-                            <TooltipContent className='max-w-sm'>
-                              <p>{t('channels.dialogs.retryableErrorPatterns.description')}</p>
-                            </TooltipContent>
-                          </Tooltip>
+                        <div className='flex items-center gap-1.5 pt-2 md:col-span-2'>
+                          <span className='inline-flex items-center gap-1.5'>
+                            <FormLabel className='font-medium'>{t('channels.dialogs.retryableErrorPatterns.label')}</FormLabel>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button
+                                  type='button'
+                                  className='text-muted-foreground hover:text-foreground inline-flex items-center'
+                                  aria-label={t('channels.dialogs.retryableErrorPatterns.description')}
+                                >
+                                  <Info className='h-3.5 w-3.5' />
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent className='max-w-sm'>
+                                <p>{t('channels.dialogs.retryableErrorPatterns.description')}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </span>
                         </div>
                         <div className='md:col-span-6'>
                           <Textarea
